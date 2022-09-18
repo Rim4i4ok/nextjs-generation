@@ -44,7 +44,7 @@ export async function getStaticPaths() {
       { params: { pid: "p2" } },
       { params: { pid: "p3" } },
     ],
-    fallback: false, // ???
+    fallback: false, // will return 404 if input params not in return array
   };
 }
 
