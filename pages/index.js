@@ -22,6 +22,7 @@ export async function getStaticProps() {
     props: {
       products: data.products,
     },
+    revalidate: 10, // every 10 seconds new page will generate
   };
 }
 
