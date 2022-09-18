@@ -6,6 +6,10 @@ import { Fragment } from "react";
 function ProductDetailPage(props) {
   const { loadedProduct } = props;
 
+  if (!loadedProduct) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Fragment>
       <h1>{loadedProduct.title}</h1>
@@ -44,7 +48,8 @@ export async function getStaticPaths() {
       { params: { pid: "p2" } },
       { params: { pid: "p3" } },
     ],
-    fallback: false, // will return 404 if input params not in return array
+    // fallback: false, // will return 404 if input params not in return array
+    fallback: true, // will generate page on request, and call page with empty data, after page was generated will replace with data
   };
 }
 
